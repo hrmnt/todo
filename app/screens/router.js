@@ -2,12 +2,12 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import App from './App';
 import Details from './Details';
-import observableListStore from '../utils/data';
+import todos from '../data/data';
 
 
 const Index = StackNavigator({
     Home: {
-        screen:  props=> <App todos={observableListStore} />
+        screen:  props=> <App todos={todos} />
     },
     Detail:{
         screen: Details

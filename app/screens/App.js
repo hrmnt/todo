@@ -63,7 +63,7 @@ export default class App extends Component {
                         <View style={styles.waveWrap}>
                             <View style={[styles.counter, styles.c_1]}>
 
-                                <Text style={<styles className="counterText"></styles>}>5</Text>
+                                <Text style={styles.counterText}>5</Text>
 
                             </View>
                             <Animated.View style={[styles.wave, styles.f_w, {height: 50}]}></Animated.View>
@@ -90,22 +90,22 @@ export default class App extends Component {
                     </View>
                 </View>
 
-                {/*<ScrollView style={styles.taskList}>*/}
-                    {/*{*/}
-                        {/*store.todos.map(i => {*/}
-                            {/*// return <Box  category={i.category} key={i.id} title={i.title} type={i.type}></Box>*/}
-                            {/*return (*/}
-                                {/*<Swipeable rightButtons={this.right}>*/}
-                                    {/*<TouchableOpacity onPress={() => this.props.navigation.navigate('Detail')} style={styles.boxContainer}>*/}
+                <ScrollView style={styles.taskList}>
+                    {
+                        this.props.todos.todos.map(i => {
+                            // return <Box  category={i.category} key={i.id} title={i.title} type={i.type}></Box>
+                            return (
+                                <Swipeable rightButtons={this.right}>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Detail')} style={styles.boxContainer}>
 
-                                        {/*<View style={styles.indicator}></View>*/}
-                                        {/*<Text style={styles.title}>{i.title}</Text>*/}
-                                    {/*</TouchableOpacity>*/}
-                                {/*</Swipeable>*/}
-                            {/*)*/}
-                        {/*})*/}
-                    {/*}*/}
-                {/*</ScrollView>*/}
+                                        <View style={styles.indicator}></View>
+                                        <Text style={styles.title}>{i.title}</Text>
+                                    </TouchableOpacity>
+                                </Swipeable>
+                            )
+                        })
+                    }
+                </ScrollView>
             </View>
 
         );
